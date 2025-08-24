@@ -1,3 +1,5 @@
+console.log('Attempting to register Service Worker...');
+
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize animations and functionality
@@ -8,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCodeSyntaxHighlighting();
     initScrollAnimations();
     initTerminalInteractions();
+    initMobileNavigation();
 });
 
 // Typing Animation
@@ -264,6 +267,58 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+// Mobile Navigation
+function initMobileNavigation() {
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    
+    if (mobileNavToggle && mobileNav) {
+        // Toggle mobile navigation
+        mobileNavToggle.addEventListener('click', function() {
+            const isExpanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
+            mobileNavToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileNav.classList.toggle('active');
+            document.body.classList.toggle('nav-open');
+            
+            // Update toggle button text
+            mobileNavToggle.textContent = isExpanded ? '☰' : '✕';
+        });
+        
+        // Close mobile nav when clicking on links
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                mobileNavToggle.setAttribute('aria-expanded', 'false');
+                mobileNavToggle.textContent = '☰';
+                document.body.classList.remove('nav-open');
+            });
+        });
+        
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', function(e) {
+            if (mobileNav.classList.contains('active') && 
+                !mobileNav.contains(e.target) && 
+                !mobileNavToggle.contains(e.target)) {
+                mobileNav.classList.remove('active');
+                mobileNavToggle.setAttribute('aria-expanded', 'false');
+                mobileNavToggle.textContent = '☰';
+                document.body.classList.remove('nav-open');
+            }
+        });
+        
+        // Close mobile nav on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                mobileNavToggle.setAttribute('aria-expanded', 'false');
+                mobileNavToggle.textContent = '☰';
+                document.body.classList.remove('nav-open');
+            }
+        });
+    }
+}
+
 // Responsive Navigation (for future mobile menu)
 function initMobileMenu() {
     // This can be implemented when adding a mobile navigation menu
@@ -296,16 +351,13 @@ window.addEventListener('error', function(e) {
     console.error('Error occurred:', e.error);
 });
 
-// Service Worker registration (for PWA capabilities)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').then(function(registration) {
-            console.log('SW registered: ', registration);
-        }).catch(function(registrationError) {
-            console.log('SW registration failed: ', registrationError);
-        });
+navigator.serviceWorker.register('sw.js')
+    .then(function(registration) {
+        console.log('Service Worker registered with scope:', registration.scope);
+    })
+    .catch(function(error) {
+        console.error('Service Worker registration failed:', error);
     });
-}
 
 // Export functions for global access (if needed)
 window.scrollToSection = scrollToSection;
