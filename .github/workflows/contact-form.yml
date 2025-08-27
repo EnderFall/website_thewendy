@@ -1,0 +1,78 @@
+name: Contact Form Email Handler
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [contact-form-submission]
+
+jobs:
+  send-contact-email:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Process contact form submission
+      env:
+        EMAIL_USER: ${{ secrets.EMAIL_USER }}
+        EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+        FORM_DATA: ${{ github.event.client_payload.formData }}
+      run: |
+        node -e "
+        const nodemailer = require('nodemailer');
+        
+        try {
+          // Parse the form data from the webhook
+          const formData = JSON.parse(process.env.FORM_DATA || '{}');
+          const { name, email, message } = formData;
+          
+          if (!name || !email || !message) {
+            console.error('Missing required form fields');
+            process.exit(1);
+          }
+          
+          // Create email transporter
+          const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: process.env.EMAIL_USER,
+              pass: process.env.EMAIL_PASS
+            }
+          });
+          
+          // Email content
+          const mailOptions = {
+            from: process.env.EMAIL_USER,
+            replyTo: email,
+            to: process.env.EMAIL_USER,
+            subject: \`Website Contact: \${name}\`,
+            html: \`
+              <h2>New Contact Form Submission</h2>
+              <p><strong>Name:</strong> \${name}</p>
+              <p><strong>Email:</strong> \${email}</p>
+              <p><strong>Message:</strong></p>
+              <p>\${message.replace(/\\n/g, '<br>')}</p>
+              <hr>
+              <p><small>Submitted at: \${new Date().toLocaleString()}</small></p>
+            \`,
+            text: \`New contact form submission:\\n\\nName: \${name}\\nEmail: \${email}\\nMessage: \${message}\\n\\nSubmitted at: \${new Date().toLocaleString()}\`
+          };
+          
+          // Send email
+          const info = await transporter.sendMail(mailOptions);
+          console.log('✅ Email sent successfully:', info.messageId);
+          
+        } catch (error) {
+          console.error('❌ Error sending email:', error.message);
+          process.exit(1);
+        }
+        "
