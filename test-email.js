@@ -25,15 +25,7 @@ try {
 // Check if environment variables are set
 if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
     console.error('❌ Environment variables not set!');
-    console.log('\n💡 Please do one of the following:');
-    console.log('1. Create a .env file with:');
-    console.log('   EMAIL_USER=your-email@gmail.com');
-    console.log('   EMAIL_PASS=your-app-password');
-    console.log('\n2. Or set environment variables:');
-    console.log('   export EMAIL_USER=your-email@gmail.com');
-    console.log('   export EMAIL_PASS=your-app-password');
-    console.log('\n3. Or pass them directly:');
-    console.log('   EMAIL_USER=your-email@gmail.com EMAIL_PASS=your-app-password node test-email.js');
+    
     process.exit(1);
 }
 
@@ -80,9 +72,14 @@ transporter.verify((error, success) => {
             `
         };
 
+        // Use callback style to avoid async/await issues in this context
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 console.error('❌ Error sending test email:', error);
+                console.log('\n💡 Troubleshooting tips:');
+                console.log('1. Check your app password is correct');
+                console.log('2. Ensure 2FA is enabled on Gmail');
+                console.log('3. Verify the app password is 16 characters');
             } else {
                 console.log('✅ Test email sent successfully!');
                 console.log('📧 Message ID:', info.messageId);
