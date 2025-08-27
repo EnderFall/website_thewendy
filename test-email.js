@@ -1,19 +1,45 @@
 // Simple test script for email functionality
-require('dotenv').config();
 const nodemailer = require('nodemailer');
+const fs = require('fs');
+const path = require('path');
 
 console.log('🧪 Testing email configuration...');
+
+// Try to load .env file manually
+try {
+    const envPath = path.join(__dirname, '.env');
+    if (fs.existsSync(envPath)) {
+        const envContent = fs.readFileSync(envPath, 'utf8');
+        envContent.split('\n').forEach(line => {
+            const [key, value] = line.split('=');
+            if (key && value) {
+                process.env[key.trim()] = value.trim();
+            }
+        });
+        console.log('✅ .env file loaded');
+    }
+} catch (error) {
+    console.log('ℹ️ No .env file found, using process.env');
+}
 
 // Check if environment variables are set
 if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
     console.error('❌ Environment variables not set!');
-    console.log('Please create a .env file with:');
-    console.log('EMAIL_USER=your-email@gmail.com');
-    console.log('EMAIL_PASS=your-app-password');
+    console.log('\n💡 Please do one of the following:');
+    console.log('1. Create a .env file with:');
+    console.log('   EMAIL_USER=your-email@gmail.com');
+    console.log('   EMAIL_PASS=your-app-password');
+    console.log('\n2. Or set environment variables:');
+    console.log('   export EMAIL_USER=your-email@gmail.com');
+    console.log('   export EMAIL_PASS=your-app-password');
+    console.log('\n3. Or pass them directly:');
+    console.log('   EMAIL_USER=your-email@gmail.com EMAIL_PASS=your-app-password node test-email.js');
     process.exit(1);
 }
 
-console.log('✅ Environment variables found');
+console.log('✅ Environment variables found:');
+console.log('   EMAIL_USER:', process.env.EMAIL_USER);
+console.log('   EMAIL_PASS:', '•'.repeat(process.env.EMAIL_PASS.length));
 
 // Create transporter
 const transporter = nodemailer.createTransport({
