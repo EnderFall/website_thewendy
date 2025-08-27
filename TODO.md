@@ -1,10 +1,11 @@
-# Profile Image Header Implementation
+# Email Form Implementation Plan
 
 ## Steps to Complete:
-- [x] Move profile image container from hero section to terminal header in index.html
-- [x] Add CSS styles for circular header profile image
-- [x] Make header profile image responsive for all devices
-- [ ] Test the implementation across different screen sizes
-- [ ] Verify positioning and responsiveness
+1. [x] Create backend email handler (sendEmail.js)
+2. [ ] Update index.html form with proper attributes and JavaScript
+3. [ ] Test the email functionality
+4. [ ] Verify email formatting and content
 
-## Current Status: CSS styles added, ready for testing
+## Current Progress:
+- Backend email handler created
+- Next: Update index.html form

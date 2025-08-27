@@ -55,25 +55,32 @@ progress-container {
             margin: 20px 0;
         }
 
-        .progress-bar {
+         .progress-bar {
             width: 100%;
-            height: 30px;
+            height: 12px;
             background-color: #e0e0e0;
-            border: 3px solid black;
-            border-radius: 15px;
+            border: 2px solid #333;
+            border-radius: 8px;
             overflow: hidden;
             position: relative;
         }
 
         .progress-fill {
             height: 100%;
-            background-color: #ff0000;
-            width: 0%;
-            border-radius: 12px;
-            animation: fillProgress 3s ease-in-out forwards;
+            background: linear-gradient(90deg, #ff0000, #ff3333);
+            border-radius: 6px;
+            width: 0%; /* Start at 0% */
+            transition: width 2s ease-in-out;
             position: relative;
+            animation: autoFill 2s ease-in-out forwards;
         }
 
+        @keyframes autoFill {
+            from { width: 0%; }
+            to { width: var(--progress, 0%); }
+        }
+
+        /* Optional: Add shimmer effect */
         .progress-fill::after {
             content: '';
             position: absolute;
@@ -84,59 +91,19 @@ progress-container {
             background: linear-gradient(
                 90deg,
                 transparent,
-                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0.4) 50%,
                 transparent
             );
             animation: shimmer 2s infinite;
         }
 
-        @keyframes fillProgress {
-            0% { width: 0%; }
-            100% { width: 75%; }
-        }
-
         @keyframes shimmer {
             0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            100% { transform: translateX(200%); }
         }
 
-        .progress-text {
-            text-align: center;
-            margin-top: 10px;
-            font-weight: bold;
-            color: #333;
-        }
 
-        /* Additional example with pulsing animation */
-        .progress-bar-pulse {
-            width: 100%;
-            height: 30px;
-            background-color: #e0e0e0;
-            border: 3px solid black;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            margin-top: 40px;
-        }
-
-        .progress-fill-pulse {
-            height: 100%;
-            background-color: #ff0000;
-            width: 60%;
-            border-radius: 12px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { 
-                background-color: #ff0000;
-                box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-            }
-            50% { 
-                background-color: #ff3333;
-                box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3);
-            }
-        }
+     
 
 /* Mobile Navigation */
 .mobile-nav-toggle {
