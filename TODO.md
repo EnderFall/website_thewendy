@@ -1,13 +1,10 @@
-# TODO: Add Image to Whoami Section
+# Profile Image Header Implementation
 
 ## Steps to Complete:
-1. [ ] Update index.html - Add image element in hero section
-2. [ ] Update styles.css - Add styling for the new profile image
-3. [ ] Test implementation in browser
-4. [ ] Verify responsive behavior
+- [x] Move profile image container from hero section to terminal header in index.html
+- [x] Add CSS styles for circular header profile image
+- [x] Make header profile image responsive for all devices
+- [ ] Test the implementation across different screen sizes
+- [ ] Verify positioning and responsiveness
 
-## Implementation Details:
-- Image path: images/maself-shadow-nobbg.png
-- Position: Right side of whoami section
-- Style: Transparent background, proper sizing and positioning
-- Responsive: Should work on all screen sizes
+## Current Status: CSS styles added, ready for testing
