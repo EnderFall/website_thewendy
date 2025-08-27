@@ -163,15 +163,15 @@ greetVisitor();
                 </div>
                 <div class="about-stats">
                     <div class="stat">
-                        <div class="stat-number" data-count="10">0</div>
+                        <div class="stat-number" data-count="10">15+</div>
                         <div class="stat-label">Projects Completed</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number" data-count="5">0</div>
+                        <div class="stat-number" data-count="5">5+</div>
                         <div class="stat-label">Years Experience</div>
                     </div>
                       <div class="stat">
-                        <div class="stat-number" data-count="2020">0</div>
+                        <div class="stat-number" data-count="2020">2020</div>
                         <div class="stat-label">Year Started</div>
                     </div>
                     
@@ -268,9 +268,10 @@ greetVisitor();
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>iIndonesia</span>
+                        <span>Indonesia</span>
                     </div>
                 </div>
+
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Name" required>
@@ -285,6 +286,7 @@ greetVisitor();
                         <span class="prompt">$</span> Send Message
                     </button>
                 </form>
+              
                 <div id="formMessage" style="display: none; margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #333; color: #00ff00;"></div>
             </div>
         </div>
@@ -309,6 +311,61 @@ greetVisitor();
 
     <script src="smooth-scroll.js"></script>
     <script src="script.js"></script>
+    <script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    console.log('Form submitted!'); // Debug log
+    
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+    
+    const formData = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        message: form.message.value.trim()
+    };
+    
+    console.log('Form data:', formData); // Debug log
+    
+    if (!formData.name || !formData.email || !formData.message) {
+        alert('Please fill in all fields');
+        return;
+    }
+    
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="prompt">$</span> Sending...';
+    
+    try {
+        console.log('Sending to server...'); // Debug log
+        
+        const response = await fetch('/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        console.log('Server response:', result); // Debug log
+        
+        if (response.ok && result.success) {
+            alert('Message sent successfully!');
+            form.reset();
+        } else {
+            alert('Failed to send message: ' + (result.message || 'Unknown error'));
+        }
+        
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Network error. Please try again.');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+    }
+});
+</script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
 </body>
 </html>

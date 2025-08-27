@@ -1,6 +1,9 @@
 {
   "dependencies": {
-    "http-server": "^14.1.1",
-    "nodemailer": "^7.0.5"
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^6.11.2",
+    "nodemailer": "^6.10.1"
   }
 }
