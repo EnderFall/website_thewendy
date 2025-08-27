@@ -1,26 +1,13 @@
-# Responsive Design Implementation Plan
+# TODO: Add Image to Whoami Section
 
-## Phase 1: CSS Responsive Updates
-- [ ] Add comprehensive mobile-first media queries with better breakpoints
-- [ ] Implement hamburger menu for mobile navigation
-- [ ] Improve typography scaling with relative units
-- [ ] Optimize touch targets for mobile devices
-- [ ] Enhance form input styling for mobile
-- [ ] Improve code window responsiveness
-- [ ] Add tablet-specific optimizations
+## Steps to Complete:
+1. [ ] Update index.html - Add image element in hero section
+2. [ ] Update styles.css - Add styling for the new profile image
+3. [ ] Test implementation in browser
+4. [ ] Verify responsive behavior
 
-## Phase 2: HTML Structure Updates
-- [ ] Add mobile navigation toggle button
-- [ ] Optimize meta viewport tag
-- [ ] Add aria-labels for accessibility
-
-## Phase 3: JavaScript Functionality
-- [ ] Add mobile menu toggle functionality
-- [ ] Improve touch event handling
-- [ ] Optimize animations for mobile performance
-
-## Phase 4: Testing & Optimization
-- [ ] Test on various device breakpoints
-- [ ] Verify touch interactions
-- [ ] Check performance metrics
-- [ ] Test form submission on mobile
+## Implementation Details:
+- Image path: images/maself-shadow-nobbg.png
+- Position: Right side of whoami section
+- Style: Transparent background, proper sizing and positioning
+- Responsive: Should work on all screen sizes

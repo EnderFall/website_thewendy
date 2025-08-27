@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wendy Website</title>
+    <title>The Wendy</title>
     <link rel="icon" href="images/w-logo-circle.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/27de2f2b2c.js" crossorigin="anonymous"></script> <!--fontawesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"> <!--fontawesome -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> bootstrap-->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -33,12 +35,18 @@
     <!-- Hero Section -->
         <div class="container">
             <div class="hero-content">
-                <div class="terminal-output">
-                    <span class="prompt">$ whoami</span>
-                    <h1 class="typing-text">Wendy | Full Stack Developer & Entrepeneur & Student</h1>
+                <div class="whoami-container">
+                    <div class="terminal-output">
+                        <span class="prompt">$ whoami</span>
+                        <h1 class="typing-text">Wendy | Full Stack Developer & Entrepeneur & Student</h1>
+                    </div>
+                    <div class="profile-image-container">
+                        <img src="images/chairme.png" alt="Wendy Profile" class="profile-image">
+                    </div>
                 </div>
                 <div class="terminal-output">
                     <span class="prompt">$ cat about.txt</span>
+                    <p class="typewriter">Passionate developer crafting digital experiences with clean code and modern technologies.</p>
                     <p class="typewriter">Passionate developer crafting digital experiences with clean code and modern technologies.</p>
                 </div>
                 <div class="hero-buttons">
@@ -83,16 +91,18 @@ greetVisitor();</code></pre>
             <div class="about-content">
                 <div class="about-text">
                     <div class="terminal-output">
-                        <span class="prompt">$ ls -la skills/</span>
+                        <span class="prompt">$ ls -la coding-skills/</span>
                         <div class="skills-grid">
-                            <div class="skill-tag">JavaScript</div>
-                            <div class="skill-tag">React</div>
-                            <div class="skill-tag">Node.js</div>
-                            <div class="skill-tag">Python</div>
-                            <div class="skill-tag">HTML/CSS</div>
-                            <div class="skill-tag">Git</div>
-                            <div class="skill-tag">Docker</div>
-                            <div class="skill-tag">AWS</div>
+                           <div class="skill-tag"><i class="fa-brands fa-js fa-xl"></i>JavaScript</div>
+                            <div class="skill-tag"><i class="fa-brands fa-html5 fa-xl"></i>HTML/CSS<i class="fa-brands fa-css3-alt fa-xl"></i></div>
+                            <div class="skill-tag"><i class="fa-brands fa-node-js fa-xl"></i>Node.js</div>
+                            <div class="skill-tag"><i class="fa-brands fa-php fa-xl"></i>PHP</div>
+                            <div class="skill-tag"><img src="images/cplusicon.svg" alt="icon" height="20" width="20" style="vertical-align: middle;">C++</div>
+                            <div class="skill-tag"><i class="fa-brands fa-git-alt fa-xl"></i>Git</div>
+                            <div class="skill-tag"><i class="fa-brands fa-laravel fa-xl"></i>Laravel</div>
+                            <div class="skill-tag">CI4</div>
+                            <div class="skill-tag"><img src="images/mysqlicon.svg" alt="icon" height="20" width="20" style="vertical-align: middle;">MySQL</div>
+                            <div class="skill-tag"><img src="images/graphqlicon.svg" alt="icon" height="20" width="20" style="vertical-align: middle;">GraphQL</div>
                         </div>
                     </div>
                     <div class="terminal-output">
@@ -102,17 +112,18 @@ greetVisitor();</code></pre>
                 </div>
                 <div class="about-stats">
                     <div class="stat">
-                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-number" data-count="10">0</div>
                         <div class="stat-label">Projects Completed</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number" data-count="3">0</div>
+                        <div class="stat-number" data-count="5">0</div>
                         <div class="stat-label">Years Experience</div>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number" data-count="25">0</div>
-                        <div class="stat-label">Happy Clients</div>
+                      <div class="stat">
+                        <div class="stat-number" data-count="2020">0</div>
+                        <div class="stat-label">Year Started</div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -206,7 +217,7 @@ greetVisitor();</code></pre>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>🇮🇩iIndonesia</span>
+                        <span>iIndonesia</span>
                     </div>
                 </div>
                 <form class="contact-form">
@@ -233,9 +244,12 @@ greetVisitor();</code></pre>
             <div class="footer-content">
                 <p>&copy; 2025 Wendy Website Portfolio.</p>
                 <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-github fa-xl"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-youtube fa-xl"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                    <i class="fa-brands fa-tiktok"></i>
+                    <a href="#" class="social-link"><i class="fa-brands fa-twitter fa-xl"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-linkedin fa-xl"></i></a>
                 </div>
             </div>
         </div>
@@ -243,5 +257,6 @@ greetVisitor();</code></pre>
 
     <script src="smooth-scroll.js"></script>
     <script src="script.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
 </body>
 </html>

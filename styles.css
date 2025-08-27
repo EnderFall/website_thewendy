@@ -181,6 +181,32 @@ body {
     flex: 1;
 }
 
+/* Whoami Container with Profile Image */
+.whoami-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.875rem;
+}
+
+.profile-image-container {
+    flex-shrink: 0;
+    display: flex;
+    align-content: right;
+}
+
+.profile-image {
+    width: 15%; /* Increased size */
+    height: 15%; /* Increased size */
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+}
+
 .terminal-output {
     margin-bottom: 1.875rem;
     font-family: 'Fira Code', monospace;
@@ -663,6 +689,17 @@ section {
     .hero {
         min-height: auto;
         padding: 3rem 0;
+    }
+    
+    .whoami-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
     }
     
     .typing-text {
