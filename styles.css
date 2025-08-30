@@ -509,6 +509,7 @@ section {
     padding-bottom: 1rem;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 .projects-carousel::-webkit-scrollbar {
@@ -522,6 +523,122 @@ section {
 
 .projects-carousel::-webkit-scrollbar-track {
     background: var(--terminal-bg);
+}
+
+/* Fix for mobile devices: force horizontal scroll and disable grid/list fallback */
+@media (max-width: 768px) {
+    .projects-carousel {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    .project-card {
+        flex: 0 0 80vw !important;
+        scroll-snap-align: start !important;
+        margin-right: 1rem;
+    }
+}
+
+/* Navbar */
+.navbar {
+    background: var(--terminal-bg);
+    border-bottom: 2px solid var(--terminal-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.nav-link {
+    color: var(--text-primary);
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    outline: none;
+}
+
+/* Mobile nav toggle button */
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: auto;
+    z-index: 1001;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* Show mobile nav toggle on mobile */
+@media (max-width: 768px) {
+    .mobile-nav-toggle {
+        display: block;
+    }
+    .navbar-container {
+        display: none;
+    }
+    .mobile-nav {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 75%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--terminal-bg);
+        z-index: 1000;
+        padding: 5rem 1rem 2rem;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        overflow-y: auto;
+    }
+    .mobile-nav.active {
+        transform: translateX(0);
+    }
+    .mobile-nav-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .mobile-nav-link {
+        color: var(--text-primary);
+        text-decoration: none;
+        font-family: 'Fira Code', monospace;
+        font-size: 1.2rem;
+        padding: 1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        display: block;
+    }
+    .mobile-nav-link:hover {
+        background: var(--bg-tertiary);
+    }
 }
 
 .project-card {
@@ -615,6 +732,18 @@ section {
     transform: translateY(-5px);
     box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.3);
     border-color: var(--accent-primary);
+}
+
+/* Responsive fix for Organizations section */
+@media (max-width: 768px) {
+    .organizations-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .organization-card {
+        width: 90% !important;
+        max-width: 400px;
+    }
 }
 
 .organization-card h3 {
