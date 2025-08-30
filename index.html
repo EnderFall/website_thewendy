@@ -31,8 +31,19 @@
         <ul class="mobile-nav-list">
             <li><a href="#about" class="mobile-nav-link">About</a></li>
             <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+            <li><a href="#organizations" class="mobile-nav-link">Organizations</a></li>
             <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
         </ul>
+    </nav>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#organizations" class="nav-link">Organizations</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -46,7 +57,7 @@
                 </div>
                 <div class="terminal-output">
                     <span class="prompt">$ cat about.txt</span>
-                    <p class="typewriter">I’m a passionate developer who enjoys building modern and reliable digital experiences.</p>
+                    <p class="typewriter">I’m someone who enjoys learning & building.</p>
                 </div>
                 <div class="hero-buttons">
                     <button class="terminal-btn" onclick="scrollToSection('projects')">
@@ -70,7 +81,7 @@
                     <pre><code class="javascript">// Welcome to my portfolio ✨
 // A little about my coding journey...
 function greetVisitor() {
-    console.log("👋 Hi there! I'm Wendy, a 17-year-old developer from Indonesia.");
+    console.log("👋 Hi there! I'm Wendy, a 17-year-old Developer, Entrepeneur, & Student from Indonesia.");
     console.log("🚀 I began my coding journey in 2020 at the age of 12, driven by curiosity and passion.");
     console.log("📚 I started with JavaScript, explored Python, and later moved on to C++ where I built small games.");
     console.log("🎨 Along the way, I created websites and fun side projects that helped me grow as a developer.");
@@ -106,7 +117,7 @@ greetVisitor();
                             <div class="skill-tag"><img src="images/cplusicon.svg" alt="icon" height="20" width="20" style="vertical-align: middle;">C++</div>
                             <div class="skill-tag"><i class="fa-brands fa-git-alt fa-xl"></i>Git</div>
                             <div class="skill-tag"><i class="fa-brands fa-laravel fa-xl"></i>Laravel</div>
-                            <div class="skill-tag">CI4</div>
+                            <div class="skill-tag"><img src="images/ci4-svg.svg" alt="icon" height="20" width="20" style="vertical-align: middle;">CI4</div>
                             <div class="skill-tag"><img src="images/mysqlicon.svg" alt="icon" height="20" width="20" style="vertical-align: middle;">MySQL</div>
                             <div class="skill-tag"><img src="images/graphqlicon.svg" alt="icon" height="20" width="20" style="vertical-align: middle;">GraphQL</div>
                         </div>
@@ -158,7 +169,10 @@ greetVisitor();
                     </div>
                     <div class="terminal-output">
                         <span class="prompt">$ cat bio.txt</span>
-                        <p>I'm a passionate developer with expertise in modern web technologies. I love solving complex problems and creating user-friendly applications that make a difference.</p>
+                        <p>I'm a 17-year-old developer and aspiring entrepreneur from Indonesia, passionate about building creative solutions to real-world problems. 
+                            I enjoy working with others, learning new skills, and challenging myself to go beyond my limits. 
+                            For me, technology isn’t just a tool — it’s a way to make a positive impact and help people achieve their goals.
+                        </p>
                     </div>
                 </div>
                 <div class="about-stats">
@@ -186,65 +200,120 @@ greetVisitor();
             <h2 class="section-title">
                 <span class="prompt">$</span> projects/
             </h2>
-            <div class="projects-grid">
+            <div class="projects-carousel">
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>E-Commerce Platform</h3>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                        </div>
-                    </div>
-                    <p>Full-stack e-commerce solution with payment integration and admin dashboard.</p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Task Management App</h3>
-                        <div class="project-tech">
-                            <span>Vue.js</span>
-                            <span>Express</span>
-                            <span>PostgreSQL</span>
-                        </div>
-                    </div>
-                    <p>Collaborative task management application with real-time updates and team features.</p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Weather Dashboard</h3>
+                        <h3>Discord Bots</h3>
                         <div class="project-tech">
                             <span>JavaScript</span>
-                            <span>API</span>
-                            <span>CSS</span>
+                            <span>Node.js</span>
+                            <span>discord.js</span>
                         </div>
                     </div>
-                    <p>Real-time weather application with location detection and forecast features.</p>
+                    <p>Full-stack Discord bot with various features and integrations.</p>
+                       <p>- PokemonUtilities</p> 
+                       <p>- Private Server Bots</p>
+                       <p>- Moderation Bots</p>
+                       <p>- Minecraft integrations with Discord Bot</p> 
+                    
                     <div class="project-links">
-                        <a href="#" class="project-link">
+                        <a href="https://github.com/EnderFall/pokemon-project" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>PokemonUtilities Code
+                        </a>
+                        
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Video Streaming App</h3>
+                        <div class="project-tech">
+                            <span>Native PHP</span>
+                            <span>Laravel 12</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                    <p>Collaborative video streaming application with real-time updates and user features.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/EnderFall/videostreaming" class="project-link">
                             <i class="fab fa-github"></i> Code
                         </a>
-                        <a href="#" class="project-link">
+                        
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>ERP App</h3>
+                        <div class="project-tech">
+                            <span>PHP</span>
+                            <span>CodeIgniter 4</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                    <p>Enterprise Resource Planning application with modular architecture and user/staff management.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/EnderFall/sikaryawan" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Geolocation Local Culinary MSMEs App</h3>
+                        <div class="project-tech">
+                            <span>Native PHP</span>
+                            <span>Laravel 12</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                    <p>Geolocation of local culinary MSMEs around your area. With access from both buyer and seller.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/EnderFall/geolokasi_umkm" class="project-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="http://s7prism.my.id/umkm/" class="project-link">
                             <i class="fas fa-external-link-alt"></i> Live Demo
                         </a>
                     </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>More Coming Soon</h3>
+                        
+                    </div>
+                    <p>Still Learning & Building More</p>
+                    
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- Organizations Section -->
+    <section id="organizations" class="organizations">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="prompt">$</span> organizations/
+            </h2>
+            <div class="organizations-list">
+                <div class="organization-card">
+                    <h3>Wibbo</h3>
+                    <p>Top Digital Product Business</p>
+                    <a href="https://www.instagram.com/wibbo.digital" target="_blank"class="organization-link">Visit Instagram</a>
+                </div>
+                <div class="organization-card">
+                    <h3>dadortx</h3>
+                    <p>Leading Website Services & Development</p>
+                    <a href="https://www.dadortx.com" target="_blank" class="organization-link">Visit Website</a>
+                </div>
+                <div class="organization-card">
+                    <h3>MabarDulu</h3>
+                    <p>Content Creation For Gaming</p>
+                    <a href="https://lynk.id/mabardulu" target="_blank" class="organization-link">Visit LynkID</a>
                 </div>
             </div>
         </div>
@@ -256,38 +325,13 @@ greetVisitor();
             <h2 class="section-title">
                 <span class="prompt">$</span> contact_me
             </h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>wendywenfybz@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+62 823-6032-6432</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Indonesia</span>
-                    </div>
-                </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="terminal-btn">
-                        <span class="prompt">$</span> Send Message
-                    </button>
-                </form>
-              
-                <div id="formMessage" style="display: none; margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #333; color: #00ff00;"></div>
+            <div class="contact-content contact-buttons">
+                <a href="https://wa.me/6282186830205" target="_blank" rel="noopener" class="terminal-btn whatsapp-btn">
+                    <span class="prompt">$</span> WhatsApp
+                </a>
+                <a href="mailto:wendywenfybz@gmail.com" target="_blank" class="terminal-btn email-btn">
+                    <span class="prompt">$</span> Email
+                </a>
             </div>
         </div>
     </section>
@@ -298,12 +342,14 @@ greetVisitor();
             <div class="footer-content">
                 <p>&copy; 2025 Wendy Website Portfolio.</p>
                 <div class="social-links">
-                    <a href="#" class="social-link"><i class="fa-brands fa-github fa-xl"></i></a>
-                    <a href="#" class="social-link"><i class="fa-brands fa-youtube fa-xl"></i></a>
-                    <a href="#" class="social-link"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                    <i class="fa-brands fa-tiktok"></i>
-                    <a href="#" class="social-link"><i class="fa-brands fa-twitter fa-xl"></i></a>
-                    <a href="#" class="social-link"><i class="fa-brands fa-linkedin fa-xl"></i></a>
+                    <a href="https://github.com/EnderFall" target="_blank" class="social-link"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <a href="https://youtube.com/@thewendy_wen" target="_blank" class="social-link"><i class="fa-brands fa-youtube fa-lg"></i></a>
+                    <a href="https://www.instagram.com/thewendy_wen" target="_blank" class="social-link"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                    <a href="https://www.instagram.com/wendy_wenfy" target="_blank" class="social-link"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                    <a href="https://www.tiktok.com/@thewendy_wen" target="_blank" class="social-link"><i class="fa-brands fa-tiktok fa-lg"></i></a>
+                    <a href="https://x.com/thewendy_wen" target="_blank" class="social-link"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                    <a href="https://www.linkedin.com/in/wendy-wendy" target="_blank" class="social-link"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+                    <a href="https://linktr.ee/The_Wendy" target="_blank" class="social-link"><i class="fa-brands fa-linktree fa-lg"></i></a>
                 </div>
             </div>
         </div>

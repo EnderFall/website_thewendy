@@ -494,18 +494,44 @@ section {
 }
 
 /* Projects Section */
-.projects-grid {
+/* Remove old grid styles */
+/* .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
     gap: 1.875rem;
+} */
+
+/* New horizontal carousel styles */
+.projects-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.875rem;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.projects-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.projects-carousel::-webkit-scrollbar-thumb {
+    background-color: var(--accent-primary);
+    border-radius: 4px;
+}
+
+.projects-carousel::-webkit-scrollbar-track {
+    background: var(--terminal-bg);
 }
 
 .project-card {
+    flex: 0 0 22rem;
     background: var(--terminal-bg);
     padding: 1.875rem;
     border-radius: 12px;
     border: 1px solid var(--terminal-border);
     transition: all 0.3s ease;
+    scroll-snap-align: start;
 }
 
 .project-card:hover {
@@ -562,9 +588,95 @@ section {
     background: var(--bg-tertiary);
 }
 
+/* Organizations Section */
+.organizations {
+    background: var(--bg-secondary);
+    padding: 3rem 0;
+}
+
+.organizations-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.875rem;
+    justify-content: center;
+}
+
+.organization-card {
+    background: var(--terminal-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--terminal-border);
+    width: 18rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.organization-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-primary);
+}
+
+.organization-card h3 {
+    color: var(--accent-primary);
+    margin-bottom: 0.75rem;
+}
+
+.organization-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-family: 'Fira Code', monospace;
+    transition: color 0.3s ease;
+}
+
+.organization-link:hover {
+    color: var(--accent-tertiary);
+    text-decoration: underline;
+}
+
 /* Contact Section */
 .contact {
     background: var(--bg-secondary);
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-buttons .terminal-btn {
+    min-width: 12rem;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-buttons .whatsapp-btn {
+    background-color: darkslategray;
+    color: black;
+    border: none;
+}
+
+.contact-buttons .whatsapp-btn:hover {
+    background-color: #1ebe5b;
+}
+
+.contact-buttons .email-btn {
+    background-color: darkslategray;
+    color: var(--bg-primary);
+    border: none;
+}
+
+.contact-buttons .email-btn:hover {
+    background-color: var(--accent-tertiary);
+    color: var(--bg-primary);
 }
 
 .contact-content {
@@ -634,6 +746,41 @@ section {
 .form-group textarea {
     resize: vertical;
     min-height: 7.5rem;
+}
+
+/* Navbar */
+.navbar {
+    background: var(--terminal-bg);
+    border-bottom: 2px solid var(--terminal-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.nav-link {
+    color: var(--text-primary);
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    outline: none;
 }
 
 /* Footer */

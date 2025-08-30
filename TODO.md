@@ -1,14 +1,19 @@
-# Email Form Implementation Plan
+# Project Updates TODO
 
-## Steps to Complete:
-1. [x] Create backend email handler (sendEmail.js)
-2. [x] Update index.html form with proper attributes and JavaScript
-3. [x] Install Nodemailer dependency
-4. [ ] Test the email functionality
-5. [ ] Verify email formatting and content
+## Tasks to Complete:
+- [x] 1. Convert projects grid to horizontal carousel in index.html
+- [x] 2. Add CSS styles for horizontal carousel in styles.css
+- [x] 3. Add new organizations/companies section in index.html
+- [x] 4. Add CSS styles for organizations section in styles.css
+- [x] 5. Create navbar in index.html
+- [x] 6. Add CSS styles for navbar in styles.css
+- [ ] 7. Add JavaScript for carousel navigation (optional)
+- [ ] 8. Test the implementation
 
 ## Current Progress:
-- Backend email handler created
-- Frontend form updated with name attributes and JavaScript
-- Nodemailer package installed
-- Next: Test email functionality by running the server
+Completed the main structural changes. Need to add responsive design improvements and test the implementation.
+
+## Next Steps:
+- Add responsive design for carousel and organizations section
+- Test on different screen sizes
+- Consider adding arrow navigation for carousel
